@@ -5,3 +5,20 @@
 .red {
     color: red;
 }
+
+#toast {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 1em;
+}
+
+tbody td:not(:first-child) {
+    /*border-bottom: solid black 1px;
+    border-right: solid black 1px;*/
+    border: solid black 1px;
+}
+
+tbody td:first-child, thead {
+    font-weight: bold;
+}
