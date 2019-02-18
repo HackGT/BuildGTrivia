@@ -1,14 +1,14 @@
 let colorCodes = [
-   "black",
-   "brown",
-   "red",
-   "orange",
-   "yellow",
-   "green",
-   "blue",
-   "violet",
-   "grey",
-   "white"
+    "black",
+    "brown",
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "violet",
+    "grey",
+    "white"
 ]
 
 let varianceCodes = {
@@ -20,7 +20,7 @@ let varianceCodes = {
 function getColorCode() {
     let colors = [];
 
-    for (let i = 0; i < 3; i++ ) {
+    for (let i = 0; i < 3; i++) {
         colors.push(Math.floor(Math.random() * colorCodes.length))
     }
 
@@ -41,7 +41,7 @@ function getAnswer(colors) {
     for (let i = 0; i < 2; i++) {
         answer += colors[i]
     }
-    answer += 'e' + colors[2]+ " variance -> " + colors[3] + "%"
+    answer += 'e' + colors[2] + " variance -> " + colors[3] + "%"
     return answer
 }
 
@@ -57,13 +57,31 @@ function shuffleColors(colors) {
     return colors
 }
 
-function generateResponses() {
+function generateQuestion() {
     let colors = getColorCode()
-    console.log(colors)
-    let correctAnswer = getAnswer(colors)
-    let incorrectAnswer = getAnswer(shuffleColors(colors))
-    console.log(correctAnswer)
-    console.log(incorrectAnswer)
-}
+    let shuffledColors = shuffleColors(colors)
+    let answer = "A"
+    let a = colors
+    let b = shuffledColors
+    if (Math.random() > 0.5) {
+        a = shuffledColors
+        b = colors
+        answer = "B"
+    }
 
-generateResponses()
+    return {
+        question:
+`<p>Choose the correct net resistance for the following resistor:</p>
+<div>
+${getAnswer(a)}
+<input type="radio" name="answer" value="a">
+</div>
+<div>
+${getAnswer(b)}
+<input type="radio" name="answer" value="b">
+</div>
+`,
+        answer
+    }
+
+}
