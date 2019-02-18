@@ -23,9 +23,6 @@ let varianceCodes = {
     "": 0
 }
 
-// choose three random colors from colorCodes
-// choose one color from variance
-
 function getColorCode() {
     let colors = [];
 
@@ -34,7 +31,6 @@ function getColorCode() {
     }
 
     colors.push(getVarianceColor())
-    console.log(colors)
     return colors
 }
 
@@ -45,8 +41,39 @@ function getVarianceColor() {
     return variance
 }
 
-// compute the answer
-// compute an incorrect answer also
 getColorCode()
 
-// interface for question and answer
+// compute the answer to the question
+
+function getAnswer(colors) {
+    let answer = ''
+
+    for (let i = 0; i < 2; i++) {
+        answer += colors[i]
+    }
+    answer += 'e' + colors[2]+ " variance -> " + colors[3] + "%"
+    return answer
+}
+
+function shuffleColors(colors) {
+    let randomIndex = ''
+    let temp = 0
+    for (let i = 0; i < colors.length; i++) {
+        randomIndex = Math.floor(Math.random() * colors.length)
+        temp = colors[i]
+        colors[i] = colors[randomIndex]
+        colors[randomIndex] = temp
+    }
+    return colors
+}
+
+function generateResponses() {
+    let colors = getColorCode()
+    console.log(colors)
+    let correctAnswer = getAnswer(colors)
+    let incorrectAnswer = getAnswer(shuffleColors(colors))
+    console.log(correctAnswer)
+    console.log(incorrectAnswer)
+}
+
+generateResponses()
