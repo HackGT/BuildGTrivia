@@ -1,9 +1,3 @@
-// resistors have three main bands, with one band for variance
-
-
-// the program must generate 4 random colors, get a correct answer, and then get a wrong answer
-
-
 let colorCodes = [
    "black",
    "brown",
@@ -40,10 +34,6 @@ function getVarianceColor() {
     let variance = varianceCodes[varianceColors[varianceIndex]]
     return variance
 }
-
-getColorCode()
-
-// compute the answer to the question
 
 function getAnswer(colors) {
     let answer = ''
