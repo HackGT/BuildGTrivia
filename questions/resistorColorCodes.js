@@ -28,19 +28,16 @@ function getAnswer(colors) {
         answer += colors[i]
     }
     answer = convertToHipNotation(answer, colors[2])
-    console.log(answer)
     return answer
 }
 
 function convertToHipNotation(digits, exponent) {
     answer = ''
-    console.log(digits)
-    console.log(exponent)
     switch (exponent) {
         case 0: answer = digits
         case 1: answer = digits * 10; break;
         case 2: answer = digits * 100; break;
-        case 3: answer = digits + 'K'; break;
+        case 3: answer = digits + ' K'; break;
         case 4: answer = (digits * 10 ) + ' K'; break;
         case 5: answer = (digits * 100) + ' K'; break;
         case 6: answer = digits + ' M'; break;
@@ -48,14 +45,13 @@ function convertToHipNotation(digits, exponent) {
         case 8: answer = (digits * 100) + ' M'; break;
         case 9: answer = digits + ' G'; break;
     }
-    console.log(answer)
     answer += '&#8486;'
     return answer
 }
 
 function getWrongColorCode(correctColors) {
     let wrongColors = [];
-    while (isEqualColors(wrongColors, correctColors)) {
+    while (isEqualColors(wrongColors, correctColors) || isZero(wrongColors)) {
         for (let i = 0; i < 3; i++) {
             wrongColors.push(Math.floor(Math.random() * colorCodes.length))
         }
@@ -72,11 +68,14 @@ function isEqualColors(colors1, colors2) {
     return true;
 }
 
+function isZero(colors) {
+  return 0 == colors[0] && 0 == colors[1] && 0 == colors[2]
+}
+
 function generateResistor(correctColors) {
     return `
     <svg
-       width="400px"
-       height="400px"
+       height="40%"
        viewBox="0 0 297 210"
        version="1.1">
       <g
@@ -128,8 +127,6 @@ function generateResistor(correctColors) {
 function generateQuestion() {
     let colors = getColorCode()
     let shuffledColors = getWrongColorCode(colors)
-    console.log(colors)
-    console.log(shuffledColors)
     let answer = "A"
     let a = colors
     let b = shuffledColors
@@ -159,5 +156,3 @@ ${getAnswer(b)}
 }
 
 module.exports = generateQuestion
-
-console.log(generateQuestion())
