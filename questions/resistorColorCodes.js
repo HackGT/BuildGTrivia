@@ -11,12 +11,6 @@ let colorCodes = [
     "white"
 ]
 
-let varianceCodes = {
-    "gold": 5,
-    "silver": 10,
-    "": 0
-}
-
 function getColorCode() {
     let colors = [];
 
@@ -24,15 +18,7 @@ function getColorCode() {
         colors.push(Math.floor(Math.random() * colorCodes.length))
     }
 
-    colors.push(getVarianceColor())
     return colors
-}
-
-function getVarianceColor() {
-    let varianceIndex = Math.floor(Math.random() * Object.keys(varianceCodes).length)
-    let varianceColors = Object.keys(varianceCodes)
-    let variance = varianceCodes[varianceColors[varianceIndex]]
-    return variance
 }
 
 function getAnswer(colors) {
@@ -41,7 +27,29 @@ function getAnswer(colors) {
     for (let i = 0; i < 2; i++) {
         answer += colors[i]
     }
-    answer += 'e' + colors[2] + " variance -> " + colors[3] + "%"
+    answer = convertToHipNotation(answer, colors[2])
+    console.log(answer)
+    return answer
+}
+
+function convertToHipNotation(digits, exponent) {
+    answer = ''
+    console.log(digits)
+    console.log(exponent)
+    switch (exponent) {
+        case 0: answer = digits
+        case 1: answer = digits * 10; break;
+        case 2: answer = digits * 100; break;
+        case 3: answer = digits + 'K'; break;
+        case 4: answer = (digits * 10 ) + ' K'; break;
+        case 5: answer = (digits * 100) + ' K'; break;
+        case 6: answer = digits + ' M'; break;
+        case 7: answer = (digits * 10) + ' M'; break;
+        case 8: answer = (digits * 100) + ' M'; break;
+        case 9: answer = digits + ' G'; break;
+    }
+    console.log(answer)
+    answer += '&#8486;'
     return answer
 }
 
@@ -51,7 +59,6 @@ function getWrongColorCode(correctColors) {
         for (let i = 0; i < 3; i++) {
             wrongColors.push(Math.floor(Math.random() * colorCodes.length))
         }
-        wrongColors.push(getVarianceColor())
     }
     return wrongColors
 }
@@ -66,18 +73,10 @@ function isEqualColors(colors1, colors2) {
 }
 
 function generateResistor(correctColors) {
-    varianceColor = ''
-    if (correctColors[3] === 5) {
-        varianceColor = "rgb(212,175,55)"
-    } else if (correctColors[3] === 10) {
-        varianceColor = "rgb(211,211,211)"
-    } else {
-        varianceColor = "rgb(237,187,144)"
-    }
     return `
     <svg
-       width="500px"
-       height="500px"
+       width="400px"
+       height="400px"
        viewBox="0 0 297 210"
        version="1.1">
       <g
@@ -107,13 +106,6 @@ function generateResistor(correctColors) {
            height="37.56406"
            x="141.21027"
            y="170.73576" />
-        <rect
-           y="170.81621"
-           x="175.06314"
-           height="37.48362"
-           width="7.6196766"
-           id="rect4"
-           style="fill:${varianceColor};fill-opacity:1;stroke:none;stroke-width:1.01163495;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
         <rect
            style="fill:#dbe1e1;fill-opacity:1;stroke:#000000;stroke-width:0.42979875;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect832"
