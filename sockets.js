@@ -6,7 +6,7 @@ const generator = require('./questionGenerator')
 
 const port = 3000
 const teams = {
-    red: "red",
+    white: "white",
     blue: "blue"
 }
 const teamScores = {}
@@ -28,7 +28,7 @@ console.log("Listening on localhost:" + port)
 // when we get a new connection – `socket` represents the user that's connected
 io.on('connection', function(socket) {
     // maybe convert this to a weighted random based on the # of team members currently present
-    socket.team = (Math.random() > 0.5) ? teams.red : teams.blue
+    socket.team = (Math.random() > 0.5) ? teams.white : teams.blue
     socket.hasQuestion = false
     socket.answer = null
 

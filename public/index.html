@@ -1,24 +1,31 @@
+
 <html>
     <head>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1">
         <link rel="stylesheet" href="css/style.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
     </head>
 
     <body>
-        <div id="toast"></div>
+        <!-- <div id="toast"></div> -->
+        <div class="header">
+            <img id="buildgtrivia" src="assets/buildgtrivia.svg"/>
+        </div>
+        <div class="container">
+            <!-- <h1>BuildGTrivia</h1> -->
+            <p id="team" class="team">Your team hasn't been assigned yet</p>
 
-        <h1>BuildGTrivia</h1>
-        <p id="team">Your team hasn't been assigned yet</p>
+            <div id="question"></div>
+            <button id="submit"><span>Submit</span></button>
 
-        <div id="question"></div>
-        <button id="submit">Submit</button>
-
-        <div id="scores">
-            <p class="blue">Blue Score: <b id="blue">0</b></p>
-            <p class="red">Red Score: <b id="red">0</b></p>
+            <div id="scores">
+                <span class="blue">Blue Score: <b id="blue">0</b></span>
+                &nbsp;&nbsp;&nbsp;
+                <span class="white">White Score: <b id="white">0</b></span>
+            </div>
         </div>
 
         <script src="js/connection.js"></script>
-        
+
     </body>
 </html>

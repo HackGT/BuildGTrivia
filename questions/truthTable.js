@@ -40,7 +40,7 @@ function cfg(currentSymbol, alphabet, seenAlphabet) {
         if (nextState == 0) {
             return char + ' '
         } else if (nextState == 1) {
-            return '(NOT ' + char + ') '
+            return '(<span class="not">' + char + '</span>) '
         } else {
             // alphabet - seenAlphabet = set of remaining chars we can use
             let difference = new Set(
@@ -68,7 +68,8 @@ function cfg(currentSymbol, alphabet, seenAlphabet) {
 function buildTruthTable(expression, phony) {
     phony = phony === undefined ? false : phony
 
-    var jsExpression = expression.replace(/NOT/g, "!")
+    var jsExpression = expression.replace(/<span class="not">/g, "!")
+    jsExpression = jsExpression.replace(/<\/span>/g, "")
     for (var i = 0; i < operators.length; i++) {
         jsExpression = jsExpression.replace(RegExp(operators[i], "g"), jsOperators[i])
     }
@@ -132,14 +133,16 @@ function generateQuestion() {
 
     return {
         question:
-`<p>Pick the correct truth table for the following equation: <b>${equation}</b></p>
+`<p class="text">Pick the correct truth table for the following equation: <b>${equation}</b></p>
 <div>
+<input type="radio" name="answer" value="a" id="answer-a">
+<label for="answer-a" class="answer-label"></label>
 ${truthTableToHTML(a)}
-<input type="radio" name="answer" value="a">
 </div>
 <div>
+<input type="radio" name="answer" value="b" id="answer-b">
+<label for="answer-b" class="answer-label"></label>
 ${truthTableToHTML(b)}
-<input type="radio" name="answer" value="b">
 </div>
 `,
         answer

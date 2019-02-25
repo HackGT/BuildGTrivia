@@ -139,15 +139,17 @@ function generateQuestion() {
 
     return {
         question:
-`<p>Choose the correct net resistance for the following resistor:</p>
+`<p class="text">Choose the correct net resistance for the following resistor:</p>
 ${resistor}
 <div>
+<input type="radio" name="answer" value="a" id="answer-a">
+<label for="answer-a" class="answer-label"></label>
 ${getAnswer(a)}
-<input type="radio" name="answer" value="a">
 </div>
 <div>
+<input type="radio" name="answer" value="b" id="answer-b">
+<label for="answer-b" class="answer-label"></label>
 ${getAnswer(b)}
-<input type="radio" name="answer" value="b">
 </div>
 `,
         answer
