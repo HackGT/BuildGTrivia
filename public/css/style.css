@@ -1,13 +1,3 @@
-/*@font-face {
-    font-family: "SpaceMono Regular";
-    src: url("fonts/SpaceMono-Regular.ttf") format("truetype");
-}
-do i need this stuff
-@font-face {
-    font-family: "SpaceMono Bold";
-    src: url("fonts/SpaceMono-Bold.ttf") format("truetype");
-}*/
-
 .blue {
     color: #036BFF;
     font-family: "SpaceMono-Regular", monospace;
@@ -26,14 +16,6 @@ do i need this stuff
     font-size: 1.25em;
 }
 
-body {
-    font-family: "SpaceMono-Regular", monospace;
-    font-color: #4A4A4A;
-    /*text-align: center;*/
-    font-size: 1em;
-    background-color: rgba(143, 190, 255, 0.4);
-}
-
 .not {
     border-top: solid #4A4A4A 0.125em;
 }
@@ -44,7 +26,45 @@ body {
 }
 
 .header img {
-    width: 50%;
+    width: 40%;
+}
+
+.resistor {
+    text-align:center;
+}
+.ttable {
+    text-align: center;
+}
+.answer-label {
+    width: 2em;
+    height: 2em;
+    background-color: white;
+    border: solid #036BFF 0.25em;
+    border-radius: 2em;
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 0.25em;
+    text-align: center;
+}
+
+.container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.question {
+    /*padding-left: 2em;
+    padding-right: 2em;
+    /*width: 50%;*/
+    /*text-items: center;*/
+    text-align:center;
+    margin: .5em;
+    width: 50%
+    display: block;
 }
 #answer-a, #answer-b {
     display: none;
@@ -55,18 +75,9 @@ body {
     /*background-color: #036BFF;*/
 }
 
-
-.answer-label {
-    width: 2em;
-    height: 2em;
-    background-color: white;
-    border: solid #036BFF 0.25em;
-    border-radius: 2em;
-    display: inline-block;
-    cursor: pointer;
-}
 #submit {
     margin-top: 1em;
+    cursor: pointer;
     /*min-width: 40%;*/
     min-width: 20%;
     border-radius: 20em;
@@ -113,11 +124,8 @@ body {
     left: 0;
 }
 
-.container {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#scores {
+    margin-top: 1em;
 }
 
 h1 {
@@ -128,16 +136,13 @@ h1 {
 
 }
 
-/*body {
+body {
+    font-family: "SpaceMono-Regular", monospace;
+    font-color: #4A4A4A;
+    /*text-align: center;*/
+    font-size: 1em;
     background-color: rgba(143, 190, 255, 0.4);
-}*/
-
-/*#toast {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 1em;
-}*/
+}
 
 table {
     display: inline-block;
@@ -152,8 +157,6 @@ tbody td:not(:first-child) {
     background-color: white;
     height: 2em;
     width: 4em;
-
-
 }
 
 tbody td:first-child, thead {
@@ -162,15 +165,8 @@ tbody td:first-child, thead {
     /*font-family: "SpaceMono-Regular", monospace;*/
 }
 
-#scores {
-    margin-top: 1em;
-}
-
-
 @media only screen and (max-width: 980px) {
     body {
-        background-color: red;
-
-        /*play w the shit that looks ugly*/
+        align-items: center;
     }
 }

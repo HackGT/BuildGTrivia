@@ -77,7 +77,8 @@ function generateResistor(correctColors) {
     <svg
        height="40%"
        viewBox="0 0 297 210"
-       version="1.1">
+       version="1.1"
+       style="text-align:center;">
       <g
          transform="translate(0,-87)">
         <path
@@ -139,9 +140,10 @@ function generateQuestion() {
 
     return {
         question:
-`<p class="text">Choose the correct net resistance for the following resistor:</p>
+`<p class="question">Choose the correct net resistance for the following resistor:</p>
+<div class="resistor">
 ${resistor}
-<div>
+</div>
 <input type="radio" name="answer" value="a" id="answer-a">
 <label for="answer-a" class="answer-label"></label>
 ${getAnswer(a)}
