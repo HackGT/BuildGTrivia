@@ -8,6 +8,7 @@
     color: white;
     font-family: "SpaceMono-Regular", monospace;
     font-weight: 300;
+    text-shadow: 0.05em 0.05em #000;
 }
 
 .team {
@@ -168,5 +169,11 @@ tbody td:first-child, thead {
 @media only screen and (max-width: 980px) {
     body {
         align-items: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header img {
+        width: 80%;
     }
 }
