@@ -144,14 +144,16 @@ function generateQuestion() {
 <div class="resistor">
 ${resistor}
 </div>
+
+<div class="resistor-question">
 <input type="radio" name="answer" value="a" id="answer-a">
 <label for="answer-a" class="answer-label"></label>
-${getAnswer(a)}
+<span class="answer-option">${getAnswer(a)}</span>
 </div>
-<div>
+<div class="resistor-question">
 <input type="radio" name="answer" value="b" id="answer-b">
 <label for="answer-b" class="answer-label"></label>
-${getAnswer(b)}
+<span class="answer-option">${getAnswer(b)}</span>
 </div>
 `,
         answer

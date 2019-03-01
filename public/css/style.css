@@ -33,7 +33,7 @@
 .resistor {
     text-align:center;
 }
-.ttable {
+.ttable-question {
     text-align: center;
 }
 .answer-label {
@@ -44,8 +44,17 @@
     border-radius: 2em;
     display: inline-block;
     cursor: pointer;
-    padding-left: 0.25em;
     text-align: center;
+}
+
+.answer-option {
+    position: relative;
+    top: -0.9em;
+}
+
+.ttable-question .answer-option {
+    position: relative;
+    top: 0.75em;
 }
 
 .container {
@@ -64,8 +73,6 @@
     /*text-items: center;*/
     text-align:center;
     margin: .5em;
-    width: 50%
-    display: block;
 }
 #answer-a, #answer-b {
     display: none;

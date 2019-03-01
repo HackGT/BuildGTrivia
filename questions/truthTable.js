@@ -134,15 +134,15 @@ function generateQuestion() {
     return {
         question:
 `<p class="question">Pick the correct truth table for the following equation: <div class="question"><b>${equation}</b></div></p>
-<div class="ttable">
+<div class="ttable-question">
 <input type="radio" name="answer" value="a" id="answer-a">
 <label for="answer-a" class="answer-label"></label>
-${truthTableToHTML(a)}
+<span class="answer-option">${truthTableToHTML(a)}</span>
 </div>
-<div class="ttable">
+<div class="ttable-question">
 <input type="radio" name="answer" value="b" id="answer-b">
 <label for="answer-b" class="answer-label"></label>
-${truthTableToHTML(b)}
+<span class="answer-option">${truthTableToHTML(b)}</span>
 </div>
 `,
         answer
