@@ -33,6 +33,11 @@
 .resistor {
     text-align:center;
 }
+
+.resistor > svg {
+    max-width: 100%;
+}
+
 .ttable-question {
     text-align: center;
 }
